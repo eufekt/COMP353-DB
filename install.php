@@ -14,5 +14,4 @@ require "./config.php";
   }
   $connection = null;
 
-
 ?>
