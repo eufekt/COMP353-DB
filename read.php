@@ -28,7 +28,6 @@ if (isset($_POST['submit'])) {
     <table>
       <thead>
         <tr>
-        <th>#</th>
         <th>Id</th>
         <th>First Name</th>
         <th>Last Name</th>
@@ -38,10 +37,10 @@ if (isset($_POST['submit'])) {
       <tbody>
     <?php foreach ($result as $row) { ?>
       <tr>
-            <td><?php echo escape($row["id"]); ?></td>
-            <td><?php echo escape($row["firstname"]); ?></td>
-            <td><?php echo escape($row["lastname"]); ?></td>
-            <td><?php echo escape($row["email"]); ?></td>
+            <td><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["firstname"]; ?></td>
+            <td><?php echo $row["lastname"]; ?></td>
+            <td><?php echo $row["email"]; ?></td>
       </tr>
     <?php } ?>
       </tbody>
