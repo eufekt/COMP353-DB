@@ -9,15 +9,25 @@ $options    = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
               );
 
-try {
-    $connection = new PDO("mysql:host=$host", $username, $password, $options);
-    // $sql = file_get_contents("data/init.sql");
-    // $connection->exec($sql);
-   
-    echo "Database and table users created successfully.";
+    try {
+    $connection = new PDO($dsn, $username, $password, $options);
+
+    // $new_user = array(
+    // "firstname" => $_POST['firstname'],
+    // "lastname"  => $_POST['lastname'],
+    // "email"     => $_POST['email'],
+    // "age"       => $_POST['age'],
+    // "location"  => $_POST['location']
+    // );
+
+    $sql = "INSERT INTO hvc353_4.MyGuests (id, firstname, lastname, email) values (456, 'nichita', 'hariton', 'nh@hotmail.com')";
+
+    $connection->exec($sql);
 
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
+  $connection = null;
+
 
 ?>
