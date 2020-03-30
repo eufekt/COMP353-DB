@@ -30,6 +30,10 @@ if (isset($_POST['submit'])) {
 
 <?php include "templates/header.php"; ?><h2>Add a user</h2>
 
+<?php if (isset($_POST['submit']) && $statement) { ?>
+  <?php echo $_POST['firstname']; ?> successfully added.
+<?php } ?>
+
     <form method="post">
         <label for="id">Random id</label>
     	<input type="text" name="id" id="id">
@@ -38,7 +42,9 @@ if (isset($_POST['submit'])) {
     	<label for="lastname">Last Name</label>
     	<input type="text" name="lastname" id="lastname">
     	<label for="email">Email Address</label>
-    	<input type="text" name="email" id="email">
+    	<input type="text" name="email" id="email">	
+ 	<input type="submit" name="submit" value="Submit">
+
     </form>
 
 <a href="index.php">Back to home</a>
