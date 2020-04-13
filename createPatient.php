@@ -40,7 +40,7 @@
 <?php
 if (isset($_POST['createPatient'])) {
     $sql = sprintf("INSERT INTO patientAccount (PID, firstName, lastName, address)
-    VALUES(%s, %s, %s, %s)", $_POST['patientId'],$_POST['firstName'],$_POST['lastName'], $_POST['address']);
+    VALUES(%s, '%s', '%s', '%s')", $_POST['patientId'],$_POST['firstName'],$_POST['lastName'], $_POST['address']);
     $result = execute($sql);
     echo sprintf("new patient with id %s created", $_POST['patientId']);
 }
