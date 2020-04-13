@@ -31,7 +31,7 @@
 
 <?php
 if (isset($_POST['getAllClinics'])) {
-    $sql = "SELECT * FROM hvc353_4.MyGuests";
+    $sql = "SELECT * FROM hvc353_4.appointment";
     $result = execute($sql);
     echo $result;
 }
@@ -39,7 +39,7 @@ if (isset($_POST['getAllClinics'])) {
 
 <?php
 if (isset($_POST['getMatch'])) {
-    $sql = "SELECT * FROM hvc353_4.match";
+    $sql = "SELECT * FROM hvc353_4.clinic";
     $result = execute($sql);
     echo $result;
 }
