@@ -20,13 +20,13 @@
 <!-- forms and buttons to fetch data -->
 <form method="post">
   <label >(a) get details of all dentists in all clinics</label>
-  <input type="submit" name="getAllClinics" value="get all dentists">
+  <input type="submit" name="getAllDentists" value="get all dentists">
 </form>
 
 <!-- controller that fetches data and shows the result -->
 <?php
 if (isset($_POST['getAllDentists'])) {
-    $sql = "SELECT * FROM hvc353_4.clinic";
+    $sql = "SELECT employee.EID, firstName,lastName, clinicID FROM employee, Dentist Where employee.EID = Dentist.EID";
     $result = execute($sql);
 
     if ($result) { ?>
@@ -35,17 +35,19 @@ if (isset($_POST['getAllDentists'])) {
       <table>
         <thead>
           <tr>
+            <th>employee id</th>
+            <th>first name</th>
+            <th>last name</th>
             <th>clinic id</th>
-            <th>name</th>
-            <th>address</th>
           </tr>
         </thead>
         <tbody>
       <?php foreach ($result as $row) { ?>
         <tr>
-              <td><?php echo $row["CID"]; ?></td>
-              <td><?php echo $row["name"]; ?></td>
-              <td><?php echo $row["address"]; ?></td>
+              <td><?php echo $row["EID"]; ?></td>
+              <td><?php echo $row["firstName"]; ?></td>
+              <td><?php echo $row["lastName"]; ?></td>
+              <td><?php echo $row["clinicID"]; ?></td>
         </tr>
       <?php } ?>
         </tbody>
