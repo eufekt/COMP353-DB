@@ -1,8 +1,17 @@
-<?php
-if (isset($_POST['createPatient'])) {
-    $selected = 'getAllClinics';
-    //execute queries
-}
+<?php 
+  function execute($sql) {
+      try {
+        require "config.php";
+        $connection = new PDO($dsn, $username, $password, $options);
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll();
+    
+      } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+      }
+      return $result;
+    }
 ?>
 
 <?php include "templates/header.php"; ?>
@@ -11,7 +20,7 @@ if (isset($_POST['createPatient'])) {
 <form method="post">
     <div class="input">
         <label for="patient id">patient id</label>
-        <input type="text" name="patient id" id="patient id" />
+        <input type="text" name="patientId" id="patient id" />
     </div>
     <div class="input">
         <label for="firstName">first name</label>
@@ -28,10 +37,14 @@ if (isset($_POST['createPatient'])) {
     <input type="submit" name="createPatient" value="submit">
 </form>
 
-<?php if($selected){ ?>
-<h3><?php echo $selected; ?></h3>
-<?php }; ?>
-<h2>Results will be here at the bottom once you click submit</h2>
+<?php
+if (isset($_POST['createPatient'])) {
+    $sql = sprintf("INSERT INTO patientAccount (PID, firstName, lastName, address)
+    VALUES(%s, %s, %s, %s)", $_POST['patientId'],$_POST['firstName'],$_POST['lastName'], $_POST['address']);
+    $result = execute($sql);
+    echo sprintf("new patient with id %s created", $_POST['patientId']);
+}
+?>
 
 <a href="/index.php">Back to home</a>
 <?php include "templates/footer.php"; ?>

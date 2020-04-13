@@ -95,8 +95,7 @@ if (isset($_POST['apptsByDentist&Week'])) {
    AND appointment.supervisorID = employee.EID
    ", $_POST['clinicId']
    );
-   $result = execute($sql);
-   if($result) { ?>
+c   if($result) { ?>
    <table>
      <thead>
        <tr>
