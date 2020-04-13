@@ -93,7 +93,8 @@ if (isset($_POST['apptsByDentist&Week'])) {
    FROM appointment, employee
    WHERE employee.clinicID = %s
    AND appointment.supervisorID = employee.EID
-   AND convert(DATE, appointment.from) = %s", $_POST['clinicId'], $_POST['date']
+   AND convert(DATE, appointment.from) = %s
+   ", $_POST['clinicId'], $_POST['date']
    );
    $result = execute($sql);
    if($result) { ?>
