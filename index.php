@@ -2,25 +2,25 @@
 
 <ul>
   <li>
-    <a href="pages/clinics.php"><strong>Filter</strong></a> clinics
+    <a href="clinics.php"><strong>Filter</strong></a> clinics
   </li>
   <li>
-    <a href="pages/appointments.php"><strong>Filter</strong></a> appointments
+    <a href="appointments.php"><strong>Filter</strong></a> appointments
   </li>
   <li>
-    <a href="pages/patients.php"><strong>Filter</strong></a> patients
+    <a href="patients.php"><strong>Filter</strong></a> patients
   </li>
 </ul>
 <hr>
 <ul>
   <li>
-    <a href="pages/createPatient.php"><strong>Create</strong></a> patient
+    <a href="createPatient.php"><strong>Create</strong></a> patient
   </li>
   <li>
-    <a href="pages/scheduleAppointment.php"><strong>Schedule </strong></a> appointment
+    <a href="scheduleAppointment.php"><strong>Schedule </strong></a> appointment
   </li>
   <li>
-    <a href="pages/modifyAppointment.php"><strong>Modify </strong></a> appointment
+    <a href="modifyAppointment.php"><strong>Modify </strong></a> appointment
   </li>
 </ul>
 
