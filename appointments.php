@@ -56,7 +56,7 @@
 <!-- controllers and results -->
 <?php
 if (isset($_POST['apptsByDentist&Week'])) {
-    $sql = sprintf("SELECT * FROM appointment WHERE `from` > %s AND `from` < %s AND supervisorID = %s",$_POST['startWeek'],$_POST['endWeek'],$_POST['dentistId'] );
+    $sql = sprintf("SELECT * FROM appointment WHERE `from` > '%s' AND `from` < '%s' AND supervisorID = %s",$_POST['startWeek'],$_POST['endWeek'],$_POST['dentistId'] );
     $result = execute($sql);
     if($result) { ?>
     <table>
