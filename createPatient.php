@@ -5,7 +5,7 @@ if (isset($_POST['createPatient'])) {
 }
 ?>
 
-<?php include "../templates/header.php"; ?>
+<?php include "templates/header.php"; ?>
 <h2>Create Patient</h2>
 
 <form method="post">
@@ -26,4 +26,4 @@ if (isset($_POST['createPatient'])) {
 <h2>Results will be here at the bottom once you click submit</h2>
 
 <a href="/index.php">Back to home</a>
-<?php include "../templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

@@ -10,7 +10,7 @@ if (isset($_POST['getAllPatientsAndMissedApp'])) {
 }
 ?>
 
-<?php include "../templates/header.php"; ?>
+<?php include "templates/header.php"; ?>
 <h2>Patients</h2>
 
 <form method="post">
@@ -30,4 +30,4 @@ if (isset($_POST['getAllPatientsAndMissedApp'])) {
 
 <a href="/index.php">Back to home</a>
 
-<?php include "../templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

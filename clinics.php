@@ -1,7 +1,7 @@
 <?php 
   function execute($sql) {
       try {
-        require "../config.php";
+        require "config.php";
 
         $connection = new PDO($dsn, $username, $password, $options);
         
@@ -18,7 +18,7 @@
 ?>
 
 
-<?php include "../templates/header.php"; ?>
+<?php include "templates/header.php"; ?>
 <h2>Clinics</h2>
 
 <form method="post">
@@ -47,4 +47,4 @@ if (isset($_POST['getMatch'])) {
 
 
 <a href="/index.php">Back to home</a>
-<?php include "../templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

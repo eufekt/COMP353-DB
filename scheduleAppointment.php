@@ -5,7 +5,7 @@ if (isset($_POST['getAllClinics'])) {
 }
 ?>
 
-<?php include "../templates/header.php"; ?>
+<?php include "templates/header.php"; ?>
 <h2>schedule appointment</h2>
 
 
@@ -16,4 +16,4 @@ if (isset($_POST['getAllClinics'])) {
 <h2>Results will be here at the bottom once you click submit</h2>
 
 <a href="/index.php">Back to home</a>
-<?php include "../templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>
