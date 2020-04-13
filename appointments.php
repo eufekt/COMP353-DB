@@ -48,11 +48,16 @@
 </form>
 
 
-<label for="4">f. Get details of all the treatments made during a given appointment.</label>
+<label for="4">(f) Get details of all the treatments made during a given appointment.</label>
 <form id="4" method="post">
     <label for="appointment">appointment id</label>
     <input type="text" name="appointmentId" id="patientId" />
     <input type="submit" name="treatmentsForAppointment" value="get">
+</form>
+
+<label for="4">(g) Get details of all unpaid bills</label>
+<form id="4" method="post">
+    <input type="submit" name="unpaidBills" value="get">
 </form>
 
 <!-- controllers and results -->
@@ -192,6 +197,37 @@ if (isset($_POST['treatmentsForAppointment'])) {
             <td><?php echo $row["cost"]; ?></td>
             <td><?php echo $row["givenBy"]; ?></td>
             <td><?php echo $row["appointmentID"]; ?></td>
+      </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+    <?php }
+ } ?>
+
+<?php
+if (isset($_POST['unpaidBills'])) {
+    $sql = sprintf("SELECT *
+    FROM bill
+    WHERE isPaid = 0;
+    ");
+    $result = execute($sql);
+    if($result) { ?>
+    <table>
+      <thead>
+        <tr>
+            <th>BID</th>
+            <th>total</th>
+            <th>isPaid</th>
+            <th>processedBy</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php foreach ($result as $row) { ?>
+      <tr>
+            <td><?php echo $row["BID"]; ?></td>
+            <td><?php echo $row["total"]; ?></td>
+            <td><?php echo $row["isPaid"]; ?></td>
+            <td><?php echo $row["processedBy"]; ?></td>
       </tr>
     <?php } ?>
       </tbody>
