@@ -35,7 +35,7 @@
     <label for="clinicId">clinic id</label>
     <input type="text" name="clinicId" id="clinicId" />
     <label for="date">date</label>
-    <input type="date" name="date" id="date" />
+    <input type="text" name="date" id="date" placeholder="2020-01-01 09:00:00"/>
     <input type="submit" name="apptsByClinicAndDate" value="get">
 </form>
 
