@@ -93,8 +93,7 @@ if (isset($_POST['apptsByDentist&Week'])) {
    FROM appointment, employee
    WHERE employee.clinicID = %s
    AND appointment.supervisorID = employee.EID
-   AND convert(DATE, appointment.from) = '%s'
-   ", $_POST['clinicId'], $_POST['date']
+   ", $_POST['clinicId']]
    );
    $result = execute($sql);
    if($result) { ?>
@@ -129,7 +128,10 @@ if (isset($_POST['apptsByDentist&Week'])) {
 
 <?php 
 if (isset($_POST['apptsByPatient'])) {
-    $sql = "SELECT * FROM hvc353_4.appointment";
+    $sql = sprintf("SELECT * 
+    FROM appointment
+    WHERE patientAccountID = %s;
+    ",$_POST['patientId']);
     $result = execute($sql);
     if($result) { ?>
     <table>
