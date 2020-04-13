@@ -16,12 +16,7 @@
   <li>
     <a href="createPatient.php"><strong>Create</strong></a> patient
   </li>
-  <li>
-    <a href="scheduleAppointment.php"><strong>Schedule </strong></a> appointment
-  </li>
-  <li>
-    <a href="modifyAppointment.php"><strong>Modify </strong></a> appointment
-  </li>
+  
   <li>
     <a href="freeSQL.php"><strong>SQL </strong></a> entry
   </li>

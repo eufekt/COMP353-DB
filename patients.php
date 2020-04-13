@@ -31,15 +31,58 @@
 <!-- controller to fetch data and render result -->
 <?php
 if (isset($_POST['getAllPatients'])) {
-  $sql = "SELECT * FROM hvc353_4.patients";
+  $sql = "SELECT * FROM hvc353_4.patientAccount";
   $result = execute($sql);
-  echo $result;
-}
+  if($result) { ?>
+  <table>
+    <thead>
+      <tr>
+          <th>PID</th>
+          <th>firstName</th>
+          <th>lastName</th>
+          <th>address</th>
+      </tr>
+    </thead>
+    <tbody>
+  <?php foreach ($result as $row) { ?>
+    <tr>
+          <td><?php echo $row["PID"]; ?></td>
+          <td><?php echo $row["firstName"]; ?></td>
+          <td><?php echo $row["lastName"]; ?></td>
+          <td><?php echo $row["address"]; ?></td>
+    </tr>
+  <?php } ?>
+    </tbody>
+</table>
+  <?php }
+} ?>
 
+<?php
 if (isset($_POST['getAllPatientsAndMissedApp'])) {
-  $sql = "getAllPatients and their missed App";
-  $result = execute($sql);
-  echo $result;
+   $sql = sprintf("SELECT AID, COUNT(*) as count
+   FROM appointment
+   WHERE wasMissed = 1
+   GROUP BY AID
+   HAVING count > 0");
+    $result = execute($sql);
+    if($result) { ?>
+    <table>
+      <thead>
+        <tr>
+            <th>AID</th>
+            <th>count</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php foreach ($result as $row) { ?>
+      <tr>
+            <td><?php echo $row["AID"]; ?></td>
+            <td><?php echo $row["count"]; ?></td>
+      </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+    <?php }
 }
 ?>
 
