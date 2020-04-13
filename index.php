@@ -2,7 +2,7 @@
 
 <ul>
   <li>
-    <a href="clinics.php"><strong>Filter</strong></a> clinics and their dentists
+    <a href="dentists.php"><strong>get all</strong></a> dentists
   </li>
   <li>
     <a href="appointments.php"><strong>Filter</strong></a> appointments

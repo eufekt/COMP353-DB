@@ -19,11 +19,13 @@
 
 <!-- forms and triggers -->
 <form method="post">
+  <label >Get all patients</label>
   <input type="submit" name="getAllPatients" value="get all patients">
 </form>
 
 <form method="post">
-  <input type="submit" name="getAllPatientsAndMissedApp" value="get all patients and missed appointments">
+  <label >(e) Get all patients with at least 1 missed appointement</label>
+  <input type="submit" name="getAllPatientsAndMissedApp" value="get ">
 </form>
 
 <!-- controller to fetch data and render result -->

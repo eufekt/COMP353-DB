@@ -15,16 +15,17 @@
 ?>
 
 <?php include "templates/header.php"; ?>
-<h2>Clinics</h2>
+<h2>Dentists</h2>
 
 <!-- forms and buttons to fetch data -->
 <form method="post">
-  <input type="submit" name="getAllClinics" value="get all clinics">
+  <label >(a) get details of all dentists in all clinics</label>
+  <input type="submit" name="getAllClinics" value="get all dentists">
 </form>
 
 <!-- controller that fetches data and shows the result -->
 <?php
-if (isset($_POST['getAllClinics'])) {
+if (isset($_POST['getAllDentists'])) {
     $sql = "SELECT * FROM hvc353_4.clinic";
     $result = execute($sql);
 

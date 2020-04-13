@@ -18,47 +18,37 @@
 <h2>Appointments</h2>
 
 <!-- forms and triggers -->
-<label for="1">Get appointments for a given <b>dentist</b> for a specific <b>week</b></label>
+<label for="1">(b) Get appointments for a given <b>dentist</b> for a specific <b>week</b></label>
 <form id="1" method="post">
-    <div class="input">
-        <label for="dentistId">dentist id</label>
-        <input type="text" name="dentistId" id="dentistId" />
-    </div>
-    <div class="input">
-        <label for="week">week</label>
-        <input type="text" name="week" id="week" />
-    </div>
-    <input class="submit" type="submit" name="apptsByDentist&Week" value="submit">
+    <label for="dentistId">dentist id</label>
+    <input type="text" name="dentistId" id="dentistId" />
+    <label for="week">week</label>
+    <input type="text" name="week" id="week" />
+    <input class="submit" type="submit" name="apptsByDentist&Week" value="get">
 </form>
 
 
-<label for="2">Get appointments in a <b>clinic</b> by <b>date</b></label>
+<label for="2">(c) Get appointments in a <b>clinic</b> by <b>date</b></label>
 <form id="2" method="post">
-    <div class="input">
-        <label for="clinicId">clinic id</label>
-        <input type="text" name="clinicId" id="clinicId" />
-    </div>
-    <div class="input">
-        <label for="date">date</label>
-        <input type="text" name="date" id="date" />
-    </div>
-    <input type="submit" name="apptsByClinicAndDate" value="submit">
+    <label for="clinicId">clinic id</label>
+    <input type="text" name="clinicId" id="clinicId" />
+    <label for="date">date</label>
+    <input type="text" name="date" id="date" />
+    <input type="submit" name="apptsByClinicAndDate" value="get">
 </form>
 
 
-<label for="3">Get appointments for a <b>patient</b></label>
+<label for="3">(d) Get appointments for a <b>patient</b></label>
 <form id="3" method="post">
-    <div class="input">
-        <label for="patientId">patient id</label>
-        <input type="text" name="patientId" id="patientId" />
-    </div>
-    <input type="submit" name="apptsByPatient" value="submit">
+    <label for="patientId">patient id</label>
+    <input type="text" name="patientId" id="patientId" />
+    <input type="submit" name="apptsByPatient" value="get">
 </form>
 
 
 <label for="4">Get patients and their missed appointments </label>
 <form id="4" method="post">
-    <input type="submit" name="patientAndMissedAppts" value="submit">
+    <input type="submit" name="patientAndMissedAppts" value="get">
 </form>
 
 <!-- controllers and results -->
