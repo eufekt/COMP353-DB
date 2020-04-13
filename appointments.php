@@ -22,8 +22,10 @@
 <form id="1" method="post">
     <label for="dentistId">dentist id</label>
     <input type="text" name="dentistId" id="dentistId" />
-    <label for="week">week</label>
-    <input type="text" name="week" id="week" />
+    <label for="week">start week</label>
+    <input type="text" name="startWeek" id="startWeek" placeholder="2020-01-01 09:00:00"/>
+    <label for="week">end week</label>
+    <input type="text" name="endWeek" id="endWeek" placeholder="2020-01-04 13:00:00" />
     <input class="submit" type="submit" name="apptsByDentist&Week" value="get">
 </form>
 
@@ -54,7 +56,7 @@
 <!-- controllers and results -->
 <?php
 if (isset($_POST['apptsByDentist&Week'])) {
-    $sql = sprintf("SELECT * FROM appointment WHERE `from` > '2020-01-01 09:00:00' AND `from` < '2020-01-04 13:00:00' AND supervisorID = %s",$_POST['dentistId'] );
+    $sql = sprintf("SELECT * FROM appointment WHERE `from` > %s AND `from` < %s AND supervisorID = %s",$_POST['startWeek'],$_POST['endWeek'],$_POST['dentistId'] );
     $result = execute($sql);
     if($result) { ?>
     <table>
