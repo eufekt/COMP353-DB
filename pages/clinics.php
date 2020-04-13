@@ -1,32 +1,34 @@
 <?php 
-  if($readyToExecute) {
-    try {
-      require "../config.php";
+  function execute($sql) {
+      try {
+        require "../config.php";
 
-      $connection = new PDO($dsn, $username, $password, $options);
-      $statement = $connection->prepare($sql);
-      $statement->execute();
-      $result = $statement->fetchAll();
-      $readyToExecute = false;
-  
-    } catch(PDOException $error) {
-      echo $sql . "<br>" . $error->getMessage();
+        $connection = new PDO($dsn, $username, $password, $options);
+        
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll();
+    
+      } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+      }
     }
-  }
+
+    return $result;
 
 ?>
 
 <?php
 if (isset($_POST['getAllClinics'])) {
     $sql = "SELECT * FROM hvc353_4.MyGuests";
-    $readyToExecute = true;
+    $result = execute($sql);
 }
 ?>
 
 <?php
 if (isset($_POST['getMatch'])) {
     $sql = "SELECT * FROM hvc353_4.match";
-    $readyToExecute = true;
+    $result = execute($sql);
 }
 ?>
 
@@ -40,10 +42,18 @@ if (isset($_POST['getMatch'])) {
 <form method="post">
   <input type="submit" name="getMatch" value="get matche">
 </form>
+<?php 
+if (isset($_POST['getAllClinics'])) {
+  $sql = "SELECT * FROM hvc353_4.MyGuests";
 
-<?php if($result){ ?>
-<div><?php echo $result; ?></div>
-<?php }; ?>
+ if($result){ ?>
+    <div><?php echo $result; ?></div>
+  <?php }; ?>
+
+}
+?>
+
+
 
 <a href="/index.php">Back to home</a>
 <?php include "../templates/footer.php"; ?>
