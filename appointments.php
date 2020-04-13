@@ -54,7 +54,7 @@
 <!-- controllers and results -->
 <?php
 if (isset($_POST['apptsByDentist&Week'])) {
-    $sql = "SELECT * FROM hvc353_4.appointments ";
+    $sql = "SELECT * FROM hvc353_4.appointment";
     $result = execute($sql);
     if($result) { ?>
     <table>
