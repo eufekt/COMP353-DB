@@ -93,9 +93,11 @@ if (isset($_POST['apptsByDentist&Week'])) {
    FROM appointment, employee
    WHERE employee.clinicID = %s
    AND appointment.supervisorID = employee.EID
-   ", $_POST['clinicId']
+   
+   ", $_POST['clinicId'], $_POST['date']
    );
-c   if($result) { ?>
+   $result = execute($sql);
+   if($result) { ?>
    <table>
      <thead>
        <tr>
