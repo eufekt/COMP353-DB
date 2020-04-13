@@ -7,7 +7,7 @@
   <li>
     <a href="appointments.php"><strong>Filter</strong></a> appointments
   </li>
-  <li>
+  <li>  
     <a href="patients.php"><strong>Filter</strong></a> patients
   </li>
 </ul>

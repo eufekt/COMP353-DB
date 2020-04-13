@@ -15,22 +15,8 @@
       return $result;
     }
 
-
 ?>
 
-<?php
-if (isset($_POST['getAllClinics'])) {
-    $sql = "SELECT * FROM hvc353_4.MyGuests";
-    $result = execute($sql);
-}
-?>
-
-<?php
-if (isset($_POST['getMatch'])) {
-    $sql = "SELECT * FROM hvc353_4.match";
-    $result = execute($sql);
-}
-?>
 
 <?php include "../templates/header.php"; ?>
 <h2>Clinics</h2>
@@ -42,17 +28,22 @@ if (isset($_POST['getMatch'])) {
 <form method="post">
   <input type="submit" name="getMatch" value="get matche">
 </form>
-<?php 
+
+<?php
 if (isset($_POST['getAllClinics'])) {
-  $sql = "SELECT * FROM hvc353_4.MyGuests";
-
- if($result){ ?>
-    <div><?php echo $result; ?></div>
-  <?php }; ?>
-
+    $sql = "SELECT * FROM hvc353_4.MyGuests";
+    $result = execute($sql);
+    echo $result;
 }
 ?>
 
+<?php
+if (isset($_POST['getMatch'])) {
+    $sql = "SELECT * FROM hvc353_4.match";
+    $result = execute($sql);
+    echo $result;
+}
+?>
 
 
 <a href="/index.php">Back to home</a>
