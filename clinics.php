@@ -27,9 +27,8 @@
 if (isset($_POST['getAllClinics'])) {
     $sql = "SELECT * FROM hvc353_4.clinic";
     $result = execute($sql);
-    echo $result;
 
-    if ($result && $statement->rowCount() > 0) { ?>
+    if ($result) { ?>
       <h2>Results</h2>
   
       <table>
