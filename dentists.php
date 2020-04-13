@@ -26,7 +26,7 @@
 <!-- controller that fetches data and shows the result -->
 <?php
 if (isset($_POST['getAllDentists'])) {
-    $sql = "SELECT employee.EID, firstName,lastName, clinicID FROM employee, Dentist Where employee.EID = Dentist.EID";
+    $sql = "SELECT employee.EID, firstName,lastName, clinicID FROM employee, dentist Where employee.EID = dentist.EID";
     $result = execute($sql);
 
     if ($result) { ?>
