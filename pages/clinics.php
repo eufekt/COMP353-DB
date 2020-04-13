@@ -12,9 +12,9 @@
       } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
       }
+      return $result;
     }
 
-    return $result;
 
 ?>
 
