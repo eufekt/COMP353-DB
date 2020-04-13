@@ -54,29 +54,120 @@
 <!-- controllers and results -->
 <?php
 if (isset($_POST['apptsByDentist&Week'])) {
-    $sql = "";
+    $sql = "SELECT * FROM hvc353_4.appointments ";
     $result = execute($sql);
-    echo $result;
-}
+    if($result) { ?>
+    <table>
+      <thead>
+        <tr>
+            <th>AID</th>
+            <th>was missed</th>
+            <th>from</th>
+            <th>to</th>
+            <th>recordedBy</th>
+            <th>patientAccountId</th>
+            <th>supervisorId</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php foreach ($result as $row) { ?>
+      <tr>
+            <td><?php echo $row["AID"]; ?></td>
+            <td><?php echo $row["wasMissed"]; ?></td>
+            <td><?php echo $row["from"]; ?></td>
+            <td><?php echo $row["to"]; ?></td>
+            <td><?php echo $row["recordedBy"]; ?></td>
+            <td><?php echo $row["patientAccountID"]; ?></td>
+            <td><?php echo $row["supervisorID"]; ?></td>
+      </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+    <?php }
+} ?>
 
-if (isset($_POST['apptsByClinicAndDate'])) {
-    $sql = "";
-    $result = execute($sql);
-    echo $result;
-}
+<?php if (isset($_POST['apptsByClinicAndDate'])) {
+   $sql = "";
+   $result = execute($sql);
+   if($result) { ?>
+   <table>
+     <thead>
+       <tr>
+       <th>Id</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Email Address</th>
+       </tr>
+     </thead>
+     <tbody>
+   <?php foreach ($result as $row) { ?>
+     <tr>
+           <td><?php echo $row["id"]; ?></td>
+           <td><?php echo $row["firstname"]; ?></td>
+           <td><?php echo $row["lastname"]; ?></td>
+           <td><?php echo $row["email"]; ?></td>
+     </tr>
+   <?php } ?>
+     </tbody>
+ </table>
+   <?php }
+} ?>
 
+<?php 
 if (isset($_POST['apptsByPatient'])) {
     $sql = "";
     $result = execute($sql);
-    echo $result;
-}
+    if($result) { ?>
+    <table>
+      <thead>
+        <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php foreach ($result as $row) { ?>
+      <tr>
+            <td><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["firstname"]; ?></td>
+            <td><?php echo $row["lastname"]; ?></td>
+            <td><?php echo $row["email"]; ?></td>
+      </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+    <?php }
+ } ?>
 
+<?php
 if (isset($_POST['patientAndMissedAppts'])) {
     $sql = "";
     $result = execute($sql);
-    echo $result;
-}
-?>
+    if($result) { ?>
+    <table>
+      <thead>
+        <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php foreach ($result as $row) { ?>
+      <tr>
+            <td><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["firstname"]; ?></td>
+            <td><?php echo $row["lastname"]; ?></td>
+            <td><?php echo $row["email"]; ?></td>
+      </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+    <?php }
+ } ?>
 
 <a href="/index.php">Back to home</a>
 <?php include "templates/footer.php"; ?>
