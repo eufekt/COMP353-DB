@@ -1,7 +1,32 @@
+<?php 
+  if($readyToExecute) {
+    try {
+      require "../config.php";
+
+      $connection = new PDO($dsn, $username, $password, $options);
+      $statement = $connection->prepare($sql);
+      $statement->execute();
+      $result = $statement->fetchAll();
+      $readyToExecute = false;
+  
+    } catch(PDOException $error) {
+      echo $sql . "<br>" . $error->getMessage();
+    }
+  }
+
+?>
+
 <?php
 if (isset($_POST['getAllClinics'])) {
-    $selected = 'getAllClinics';
-    //execute queries
+    $sql = "SELECT * FROM hvc353_4.MyGuests";
+    $readyToExecute = true;
+}
+?>
+
+<?php
+if (isset($_POST['getMatch'])) {
+    $sql = "SELECT * FROM hvc353_4.match";
+    $readyToExecute = true;
 }
 ?>
 
@@ -12,10 +37,13 @@ if (isset($_POST['getAllClinics'])) {
   <input type="submit" name="getAllClinics" value="get all clinics">
 </form>
 
-<?php if($selected){ ?>
-<h3><?php echo $selected; ?></h3>
-<?php }; ?>
-<h2>Results will be here at the bottom once you click submit</h2>
+<form method="post">
+  <input type="submit" name="getMatch" value="get matche">
+</form>
 
-<a href="/index.php">Back to home</a>a
+<?php if($result){ ?>
+<div><?php echo $result; ?></div>
+<?php }; ?>
+
+<a href="/index.php">Back to home</a>
 <?php include "../templates/footer.php"; ?>
