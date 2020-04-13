@@ -8,8 +8,13 @@ table {
     border-spacing: 0;
   }
   
-  td,
-  th {
-    padding: 5px;
-    border-bottom: 1px solid #aaa;
-  }
+td,
+th {
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+.submit {
+  margin: 5px 0;
+  color: red;
+}

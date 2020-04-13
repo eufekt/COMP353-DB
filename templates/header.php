@@ -12,5 +12,3 @@
 
   <body>
     <h1>DB application</h1>
-  </body>
-</html>

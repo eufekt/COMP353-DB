@@ -2,10 +2,13 @@
 
 <ul>
   <li>
-    <a href="create.php"><strong>Create</strong></a> - add a user
+    <a href="/pages/clinics.php"><strong>Filter</strong></a> clinics
   </li>
   <li>
-    <a href="read.php"><strong>Read</strong></a> - find a user
+    <a href="/pages/appointments.php"><strong>Filter</strong></a> appointments
+  </li>
+  <li>
+    <a href="/pages/patients.php"><strong>Filter</strong></a> patients
   </li>
 </ul>
 

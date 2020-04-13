@@ -1,5 +1,5 @@
+<!-- fetch results -->
 <?php
-
 if (isset($_POST['submit'])) {
   try {
     require "./config.php";
@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
+
 <?php require "templates/header.php"; ?>
 
 <?php
