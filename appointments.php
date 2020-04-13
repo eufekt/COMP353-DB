@@ -54,7 +54,7 @@
 <!-- controllers and results -->
 <?php
 if (isset($_POST['apptsByDentist&Week'])) {
-    $sql = "SELECT * FROM hvc353_4.appointment";
+    $sql = sprintf("SELECT * FROM appointment WHERE `from` > '2020-01-01 09:00:00' AND `from` < '2020-01-04 13:00:00' AND supervisorID = %s",$_POST['dentistId'] );
     $result = execute($sql);
     if($result) { ?>
     <table>
