@@ -35,7 +35,7 @@
     <label for="clinicId">clinic id</label>
     <input type="text" name="clinicId" id="clinicId" />
     <label for="date">date</label>
-    <input type="text" name="date" id="date" placeholder="2020-01-01 09:00:00"/>
+    <input type="text" name="date" id="date" placeholder="2020-01-01"/>
     <input type="submit" name="apptsByClinicAndDate" value="get">
 </form>
 
@@ -92,7 +92,8 @@ if (isset($_POST['apptsByDentist&Week'])) {
    $sql = sprintf("SELECT appointment.AID, appointment.wasMissed, appointment.from, appointment.to, appointment.recordedBy, appointment.patientAccountID, appointment.supervisorID
    FROM appointment, employee
    WHERE employee.clinicID = %s
-   AND appointment.supervisorID = employee.EID
+   AND CAST(appointment.`from` as DATE) = '%s'
+   
    
    ", $_POST['clinicId'], $_POST['date']
    );
