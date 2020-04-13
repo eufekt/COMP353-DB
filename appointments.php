@@ -33,7 +33,7 @@
     <label for="clinicId">clinic id</label>
     <input type="text" name="clinicId" id="clinicId" />
     <label for="date">date</label>
-    <input type="text" name="date" id="date" />
+    <input type="date" name="date" id="date" />
     <input type="submit" name="apptsByClinicAndDate" value="get">
 </form>
 
@@ -87,25 +87,36 @@ if (isset($_POST['apptsByDentist&Week'])) {
 } ?>
 
 <?php if (isset($_POST['apptsByClinicAndDate'])) {
-   $sql = "";
+   $sql = sprintf("SELECT appointment.AID, appointment.wasMissed, appointment.from, appointment.to, appointment.recordedBy, appointment.patientAccountID, appointment.supervisorID
+   FROM appointment, employee
+   WHERE employee.clinicID = %s
+   AND appointment.supervisorID = employee.EID
+   AND convert(DATE, appointment.from) = %s", $_POST['clinicId'], $_POST['date']
+   );
    $result = execute($sql);
    if($result) { ?>
    <table>
      <thead>
        <tr>
-       <th>Id</th>
-       <th>First Name</th>
-       <th>Last Name</th>
-       <th>Email Address</th>
+           <th>AID</th>
+           <th>was missed</th>
+           <th>from</th>
+           <th>to</th>
+           <th>recordedBy</th>
+           <th>patientAccountId</th>
+           <th>supervisorId</th>
        </tr>
      </thead>
      <tbody>
    <?php foreach ($result as $row) { ?>
      <tr>
-           <td><?php echo $row["id"]; ?></td>
-           <td><?php echo $row["firstname"]; ?></td>
-           <td><?php echo $row["lastname"]; ?></td>
-           <td><?php echo $row["email"]; ?></td>
+           <td><?php echo $row["AID"]; ?></td>
+           <td><?php echo $row["wasMissed"]; ?></td>
+           <td><?php echo $row["from"]; ?></td>
+           <td><?php echo $row["to"]; ?></td>
+           <td><?php echo $row["recordedBy"]; ?></td>
+           <td><?php echo $row["patientAccountID"]; ?></td>
+           <td><?php echo $row["supervisorID"]; ?></td>
      </tr>
    <?php } ?>
      </tbody>
@@ -115,25 +126,31 @@ if (isset($_POST['apptsByDentist&Week'])) {
 
 <?php 
 if (isset($_POST['apptsByPatient'])) {
-    $sql = "";
+    $sql = "SELECT * FROM hvc353_4.appointment";
     $result = execute($sql);
     if($result) { ?>
     <table>
       <thead>
         <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email Address</th>
+            <th>AID</th>
+            <th>was missed</th>
+            <th>from</th>
+            <th>to</th>
+            <th>recordedBy</th>
+            <th>patientAccountId</th>
+            <th>supervisorId</th>
         </tr>
       </thead>
       <tbody>
     <?php foreach ($result as $row) { ?>
       <tr>
-            <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["firstname"]; ?></td>
-            <td><?php echo $row["lastname"]; ?></td>
-            <td><?php echo $row["email"]; ?></td>
+            <td><?php echo $row["AID"]; ?></td>
+            <td><?php echo $row["wasMissed"]; ?></td>
+            <td><?php echo $row["from"]; ?></td>
+            <td><?php echo $row["to"]; ?></td>
+            <td><?php echo $row["recordedBy"]; ?></td>
+            <td><?php echo $row["patientAccountID"]; ?></td>
+            <td><?php echo $row["supervisorID"]; ?></td>
       </tr>
     <?php } ?>
       </tbody>
@@ -143,25 +160,31 @@ if (isset($_POST['apptsByPatient'])) {
 
 <?php
 if (isset($_POST['patientAndMissedAppts'])) {
-    $sql = "";
+    $sql = "SELECT * FROM hvc353_4.appointment";
     $result = execute($sql);
     if($result) { ?>
     <table>
       <thead>
         <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email Address</th>
+            <th>AID</th>
+            <th>was missed</th>
+            <th>from</th>
+            <th>to</th>
+            <th>recordedBy</th>
+            <th>patientAccountId</th>
+            <th>supervisorId</th>
         </tr>
       </thead>
       <tbody>
     <?php foreach ($result as $row) { ?>
       <tr>
-            <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["firstname"]; ?></td>
-            <td><?php echo $row["lastname"]; ?></td>
-            <td><?php echo $row["email"]; ?></td>
+            <td><?php echo $row["AID"]; ?></td>
+            <td><?php echo $row["wasMissed"]; ?></td>
+            <td><?php echo $row["from"]; ?></td>
+            <td><?php echo $row["to"]; ?></td>
+            <td><?php echo $row["recordedBy"]; ?></td>
+            <td><?php echo $row["patientAccountID"]; ?></td>
+            <td><?php echo $row["supervisorID"]; ?></td>
       </tr>
     <?php } ?>
       </tbody>
