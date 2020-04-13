@@ -14,7 +14,7 @@
     }
 ?>
 
-<?php include "../templates/header.php"; ?>
+<?php include "templates/header.php"; ?>
 <h2>Appointments</h2>
 
 <!-- forms and triggers -->
@@ -89,4 +89,4 @@ if (isset($_POST['patientAndMissedAppts'])) {
 ?>
 
 <a href="/index.php">Back to home</a>
-<?php include "../templates/footer.php"; ?>
+<?php include "/templates/footer.php"; ?>

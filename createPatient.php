@@ -9,7 +9,11 @@ if (isset($_POST['createPatient'])) {
 <h2>Create Patient</h2>
 
 <form method="post">
-  <div class="input">
+    <div class="input">
+        <label for="patient id">patient id</label>
+        <input type="text" name="patient id" id="patient id" />
+    </div>
+    <div class="input">
         <label for="firstName">first name</label>
         <input type="text" name="firstName" id="firstName" />
     </div>
@@ -17,7 +21,11 @@ if (isset($_POST['createPatient'])) {
         <label for="lastName">last name</label>
         <input type="text" name="lastName" id="lastName" />
     </div>
-    <input class="submit" type="submit" name="createPatient" value="submit">
+    <div class="input">
+        <label for="address">address</label>
+        <input type="text" name="address" id="address" />
+    </div>
+    <input type="submit" name="createPatient" value="submit">
 </form>
 
 <?php if($selected){ ?>

@@ -25,9 +25,34 @@
 <!-- controller that fetches data and shows the result -->
 <?php
 if (isset($_POST['getAllClinics'])) {
-    $sql = "SELECT * FROM hvc353_4.clinics";
+    $sql = "SELECT * FROM hvc353_4.clinic";
     $result = execute($sql);
     echo $result;
+
+    if ($result && $statement->rowCount() > 0) { ?>
+      <h2>Results</h2>
+  
+      <table>
+        <thead>
+          <tr>
+            <th>clinic id</th>
+            <th>name</th>
+            <th>address</th>
+          </tr>
+        </thead>
+        <tbody>
+      <?php foreach ($result as $row) { ?>
+        <tr>
+              <td><?php echo $row["CID"]; ?></td>
+              <td><?php echo $row["name"]; ?></td>
+              <td><?php echo $row["address"]; ?></td>
+        </tr>
+      <?php } ?>
+        </tbody>
+    </table>
+    <?php } else { ?>
+      > No results found for.
+    <?php }
 }
 ?>
 
