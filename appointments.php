@@ -79,4 +79,4 @@ if (isset($_POST['patientAndMissedAppts'])) {
 ?>
 
 <a href="/index.php">Back to home</a>
-<?php include "/templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

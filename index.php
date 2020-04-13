@@ -22,6 +22,9 @@
   <li>
     <a href="modifyAppointment.php"><strong>Modify </strong></a> appointment
   </li>
+  <li>
+    <a href="freeSQL.php"><strong>SQL </strong></a> entry
+  </li>
 </ul>
 
 
