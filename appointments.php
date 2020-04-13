@@ -48,9 +48,11 @@
 </form>
 
 
-<label for="4">Get patients and their missed appointments </label>
+<label for="4">f. Get details of all the treatments made during a given appointment.</label>
 <form id="4" method="post">
-    <input type="submit" name="patientAndMissedAppts" value="get">
+    <label for="appointment">appointment id</label>
+    <input type="text" name="appointmentId" id="patientId" />
+    <input type="submit" name="treatmentsForAppointment" value="get">
 </form>
 
 <!-- controllers and results -->
@@ -166,32 +168,30 @@ if (isset($_POST['apptsByPatient'])) {
  } ?>
 
 <?php
-if (isset($_POST['patientAndMissedAppts'])) {
-    $sql = "SELECT * FROM hvc353_4.appointment";
+if (isset($_POST['treatmentsForAppointment'])) {
+    $sql = sprintf("SELECT *
+    FROM treatment
+    WHERE appointmentID = %s", $_POST['appointmentId']);
     $result = execute($sql);
     if($result) { ?>
     <table>
       <thead>
         <tr>
-            <th>AID</th>
-            <th>was missed</th>
-            <th>from</th>
-            <th>to</th>
-            <th>recordedBy</th>
-            <th>patientAccountId</th>
-            <th>supervisorId</th>
+            <th>TID</th>
+            <th>description</th>
+            <th>cost</th>
+            <th>givenBy</th>
+            <th>appointmentId</th>
         </tr>
       </thead>
       <tbody>
     <?php foreach ($result as $row) { ?>
       <tr>
-            <td><?php echo $row["AID"]; ?></td>
-            <td><?php echo $row["wasMissed"]; ?></td>
-            <td><?php echo $row["from"]; ?></td>
-            <td><?php echo $row["to"]; ?></td>
-            <td><?php echo $row["recordedBy"]; ?></td>
-            <td><?php echo $row["patientAccountID"]; ?></td>
-            <td><?php echo $row["supervisorID"]; ?></td>
+            <td><?php echo $row["TID"]; ?></td>
+            <td><?php echo $row["description"]; ?></td>
+            <td><?php echo $row["cost"]; ?></td>
+            <td><?php echo $row["givenBy"]; ?></td>
+            <td><?php echo $row["appointmentID"]; ?></td>
       </tr>
     <?php } ?>
       </tbody>
