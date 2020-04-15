@@ -24,7 +24,7 @@
 </form>
 
 <form method="post">
-  <label >(e) Get all patients with at least 1 missed appointement</label>
+  <label >(e) Get the number of missed appointments for each patient (only for patients who have missed at least 1 appointment)</label>
   <input type="submit" name="getAllPatientsAndMissedApp" value="get ">
 </form>
 

@@ -19,7 +19,7 @@
 
 <!-- forms and triggers -->
 <form method="post">
-  <label >Get all patients</label>
+  <label >Enter sql</label>
   <textarea name="query"></textarea>
   <input type="submit" name="submitSql" value="submit">
 </form>
@@ -29,7 +29,7 @@
 if (isset($_POST['submitSql'])) {
   $sql = $_POST['query'];
   $result = execute($sql);
-  echo "query executed";
+  echo " query successfully executed";
 
   if($result) { 
     echo $result;
