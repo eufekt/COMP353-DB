@@ -8,7 +8,7 @@
         $result = $statement->fetchAll();
     
       } catch(PDOException $error) {
-        echo $sql . "<br>" . $error->getMessage();
+        echo $sql . "<br>";
       }
       return $result;
     }
